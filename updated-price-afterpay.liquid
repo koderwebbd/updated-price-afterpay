@@ -1,0 +1,30 @@
+ 
+ <script>
+    // window.addEventListener("variant:change", function(){
+       
+    //   var price = document.querySelectorAll('.product-info__block-item sale-price');
+    //   var price = price[0].innerText;
+
+      // var afterpayPlacementHTML = document.querySelectorAll('.product-info__block-item afterpay-placement')
+      // afterpayPlacementHTML.forEach(afterpayPlacementHTML => {
+      //   afterpayPlacementHTML.setAttribute('data-amount', price);
+      // });
+
+
+    // });
+    window.addEventListener('DOMContentLoaded', function() {
+
+      var priceDiv = document.querySelectorAll('.product-info__block-item sale-price');
+      var afterpayPlacementHTML = document.querySelectorAll('.product-info__block-item afterpay-placement')
+      priceDiv.forEach(priceDiv => {
+        priceDiv.addEventListener('DOMSubtreeModified', function () {
+          var price = priceDiv.innerText;
+          afterpayPlacementHTML.forEach(afterpayPlacementHTML => {
+            afterpayPlacementHTML.setAttribute('data-amount', price);
+          });
+        }, false);
+      });
+
+    });
+   </script>
+    {% endif %}
